@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>Notes</title>
+	<style>
+		body {
+			font-family: 'Nanum Gothic', sans-serif;
+		}
+
+		div {
+			padding: 10px;
+			background-color: #f6f6f6;
+			overflow: hidden;
+		}
+
+		input[type=text],
+		textarea,
+		select {
+			font: 17px;
+			width: 85%;
+			padding: 6px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		input[type=button] {
+			font: 17px;
+			width: auto;
+			float: left;
+			cursor: pointer;
+			padding: 7px;
+		}
+
+		[id=selectTag] {
+			width: 10%;
+		}
+
+		input[id=txtName] {
+			width: 20%;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<div>
+			<h3>Budget notion alternative</h3>
+		</div>
+		<div>
+			<input type="text" id="txtName" placeholder="Enter title" />
+		</div>
+		<div>
+			<select id="selectTag">
+				<option selected value="">-- None --</option>
+				<option value="University">University</option>
+				<option value="Sport">Sport</option>
+				<option value="Books">Books</option>
+				<option value="Invest">Invest</option>
+				<option value="Research">Research</option>
+			</select>
+		</div>
+		<div>
+			<textarea id="msg" name="msg" placeholder="Write some text ..." style="height:100px"></textarea>
+		</div>
+		<div>
+			<input type="checkbox" id="check" value="Generate .md file" />
+			<label for='check'> Generate .md file</label>
+		</div>
+		<div>
+			<input type="button" id="bt" value="Save data to file" />
+		</div>
+
+	</div>
+</body>
+<script type='text/javascript' src='script.js'></script>
+
+</html>
