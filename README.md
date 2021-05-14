@@ -1,4 +1,4 @@
-# budget_notion_alternative
+# Note taking static website
 Лабораторные работы по курсу: Web- технологии разработки прикладных программных систем
 
 Для запуска:
