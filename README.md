@@ -14,10 +14,8 @@
   - Отчет -- [report.md](docs/report.md)
 
 ## Для запуска
-
 ```bash
 user@host: git clone https://github.com/mvrck96/budget_notion_alternative
 user@host: cd budget_notion_alternative
 user@host: firefox index.html
 ```
-
