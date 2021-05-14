@@ -16,7 +16,6 @@ function createFileName(name, isMd) {
 }
 
 function createFileBody(arr, isMd) {
-	//newLine = '\n'
 	quoteLine = '> Tags: '
 	let [title, tag, text] = arr;
 	if (isMd === true) {
