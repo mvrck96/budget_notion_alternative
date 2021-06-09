@@ -43,41 +43,11 @@
 		input[id=txtName] {
 			width: 20%;
 		}
+		.btns div{
+			display: inline-block;
+		}
 	</style>
-	
-	<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-      $("#bt").click(function(e){
-       var jsonData = {};
-       
-       var formData = $("#myform").serializeArray();
-       console.log(formData);
-       
-       $.each(formData, function() {
-            if (jsonData[this.name]) {
-               if (!jsonData[this.name].push) {
-                   jsonData[this.name] = [jsonData[this.name]];
-               }
-               jsonData[this.name].push(this.value || '');
-           } else {
-               jsonData[this.name] = this.value || '';
-           }
-             
-         
-       });
-        console.log(jsonData);
-      $.ajax(
-      {
-        url : "action.php",
-        type: "POST",
-        data : jsonData,
-        
-      });
-        e.preventDefault();	
-    });
-    });
-    </script> -->
+
 </head>
 
 <body>
@@ -107,36 +77,26 @@
 			<input type="checkbox" id="check" value="Generate .md file" />
 			<label for='check'> Generate .md file</label>
 		</div>
-		<div>
-			<input type="button" id="bt" value="Save data to file" />
+		<div class="btns">
+			<div>
+				<input type="button" id="bt" value="Save data to file" />
+			</div>
+			<div>
+				<input type="button" id="btObj" value="Generate object" />
+			</div>
+			<div>
+				<input type="button" id="btListObj" value="List all objects" />
+			</div>
+			<div>
+				<input type="button" id="btDeleteAll" value="Delete all objects" />
+			</div>
 		</div>
-		<div>
-			<input type="button" id="btObj" value="Generate object" />
-		</div>
-		<div>
-			<input type="button" id="btListObj" value="List all objects" />
-		</div>
-		<div>
-			<input type="button" id="btDeleteAll" value="Delete all objects" />
-		</div>
-		<div>
-			<p>Notes list down here: </p>
-			<p id="firstP"></p>
-		</div>
+			<div>
+				<p>Notes list down here: </p>
+				<p id="firstP"></p>
+			</div>
+		
 	</div>
-	
-<!-- 	
-	<form id='my_form' type='post'>
-	<fieldset>
-	<div class='elements'>
-	    <label for='Title'> Title: </label>
-	    <input required='required' type='text' value='Title_here' name='fname' size='20'>
-	</div>
-	<div class="submit">
-       <input type="submit" id="btn" name="btn" class="btn" value="Submit" />
-    </div>
-	</fieldset>
-</body> -->
 
 <script type='text/javascript' src='script.js'></script>
 </html>
