@@ -18,7 +18,7 @@ function createFileName(name, isMd) {
 function createFileBody(arr, isMd) {
 	quoteLine = '> Tags: '
 	let [title, tag, text] = arr;
-	if (isMd === true) {
+	if (isMd === true) { 
 		title = '# '.concat(title + ' ', getDdate().replace('_', ' @ '), '\n')
 		tag = quoteLine.concat(tag, '\n'.repeat(2))
 	} else {
@@ -54,5 +54,48 @@ function saveTextAsFile() {
 	downloadLink.click();
 }
 
+function getObject(){
+	var obj = {name: '', tag: '', text:''}
+	var name = document.getElementById('txtName').value;
+	var country = document.getElementById('selectTag').value;
+	var msg = document.getElementById('msg').value;
+	var isMd = document.getElementById('check').checked;
+
+	obj.name = name;
+	obj.tag = country;
+	obj.text = msg;
+
+	console.log(obj)
+	var today = new Date();
+	localStorage.setItem('obj' + today, JSON.stringify(obj));
+	return obj
+}
+
+function allStorage() {
+
+    var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        values.push( localStorage.getItem(keys[i]) );
+    }
+	console.log(values)
+    return values;
+}
+
+function deleteAllObjects(){
+	localStorage.clear()
+}
+
 var button = document.getElementById('bt');
 button.addEventListener('click', saveTextAsFile);
+
+var button = document.getElementById('btObj');
+button.addEventListener('click', getObject);
+
+var button = document.getElementById('btListObj');
+button.addEventListener('click', allStorage);
+
+var button = document.getElementById('btDeleteAll');
+button.addEventListener('click', deleteAllObjects);
