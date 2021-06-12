@@ -113,4 +113,4 @@ var button = document.getElementById('btListObj');
 button.addEventListener('click', allStorage);
 
 var button = document.getElementById('btDeleteAll');
-button.addEventListener('click', deleteAllObjects) ;
+button.addEventListener('click', deleteAllObjects);
