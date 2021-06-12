@@ -1,4 +1,3 @@
-
 function getDdate() {
 	const today = new Date();
 	var date = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear().toString().substr(-2);
@@ -7,7 +6,7 @@ function getDdate() {
 }
 
 function createFileName(name, isMd) {
-	// var today = new Date();
+	var today = new Date();
 	var ext = 'txt'
 	if (isMd === true) {
 		ext = 'md'
@@ -19,12 +18,12 @@ function createFileName(name, isMd) {
 function createFileBody(arr, isMd) {
 	quoteLine = '> Tags: '
 	let [title, tag, text] = arr;
-	if (isMd === true) { 
+	if (isMd === true) {
 		title = '# '.concat(title + ' ', getDdate().replace('_', ' @ '), '\n')
 		tag = quoteLine.concat(tag, '\n'.repeat(2))
 	} else {
-	    title = 'Title: ' + title + '\n' + 'Date: ' + getDdate().replace('_', ' @ ') + '\n'
-	    tag = 'Tags: ' + tag + '\n' 
+		title = 'Title: ' + title + '\n' + 'Date: ' + getDdate().replace('_', ' @ ') + '\n'
+		tag = 'Tags: ' + tag + '\n'
 	}
 	return ''.concat(title, tag, text)
 }
@@ -33,7 +32,7 @@ function saveTextAsFile() {
 	var name = document.getElementById('txtName').value;
 	var country = document.getElementById('selectTag').value;
 	var msg = document.getElementById('msg').value;
-	var isMd = document.getElementById('checktoday').checked;
+	var isMd = document.getElementById('check').checked;
 	var textToWrite = createFileBody([name, country, msg], isMd);
 
 	var textFileAsBlob = new Blob([textToWrite], {
@@ -55,8 +54,12 @@ function saveTextAsFile() {
 	downloadLink.click();
 }
 
-function getObject(){
-	var obj = {name: undefined, tag: undefined, text: undefined}
+function getObject() {
+	var obj = {
+		name: undefined,
+		tag: undefined,
+		text: undefined
+	}
 	var name = document.getElementById('txtName').value;
 	var country = document.getElementById('selectTag').value;
 	var msg = document.getElementById('msg').value;
@@ -70,38 +73,35 @@ function getObject(){
 
 	var today = new Date();
 	localStorage.setItem('obj' + today, JSON.stringify(obj));
-	
+
 	var newP = document.createElement("a");
 	newP.className = 'dynoName';
- 	var linkText = document.createTextNode(obj.name + '\t'); 
- 	newP.appendChild(linkText);
+	var linkText = document.createTextNode(obj.name + '\t');
+	newP.appendChild(linkText);
 	newP.href = 'http://google.com'
- 	document.getElementById("firstP").appendChild(newP);
+	document.getElementById("firstP").appendChild(newP);
 }
 
 function allStorage() {
 
-    var values = [],
-        keys = Object.keys(localStorage),
-        i = keys.length;
+	var values = [],
+		keys = Object.keys(localStorage),
+		i = keys.length;
 
-    while ( i-- ) {
-        values.push( localStorage.getItem(keys[i]) );
-    }
+	while (i--) {
+		values.push(localStorage.getItem(keys[i]));
+	}
 	console.log(values)
-    return values;
+	return values;
 }
 
-function deleteAllObjects(){
+function deleteAllObjects() {
 	localStorage.clear();
 	var paras = document.getElementsByClassName('dynoName');
-	while(paras[0]){
+	while (paras[0]) {
 		paras[0].parentNode.removeChild(paras[0]);
 	}
 }
-
-1
-
 
 var button = document.getElementById('bt');
 button.addEventListener('click', saveTextAsFile);
