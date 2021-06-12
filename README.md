@@ -17,5 +17,5 @@
 ```bash
 user@host: git clone https://github.com/mvrck96/budget_notion_alternative
 user@host: cd budget_notion_alternative
-user@host: firefox index.html
+user@host: <browser> index.html
 ```
